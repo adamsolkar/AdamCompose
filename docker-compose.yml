@@ -12,7 +12,7 @@ services:
     volumes:
       - ./reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - 80:80
+      - 5004:80
 
   # generates weather reports
   dc-front-end:

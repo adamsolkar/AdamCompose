@@ -45,7 +45,7 @@ export default {
   },
    mounted () {
     axios
-      .get('http://localhost/dc-back-end/test')
+      .get('http://localhost:5004/dc-back-end/test')
       .then(response => (this.info = response))
   }
 }
