@@ -9,7 +9,7 @@ builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
                            .AllowAnyMethod()
                            .AllowAnyHeader()
                            .AllowCredentials()
-                           .WithOrigins("http://localhost:8081", "http://localhost", "http://localhost:5004", "http://127.0.0.1:5004", "http://localhost:8080", "http://192.168.0.11:8080");
+                           .WithOrigins("http://localhost:8081", "http://localhost", "http://localhost:5004", "http://46.101.44.35:5004" "http://127.0.0.1:5004", "http://localhost:8080", "http://192.168.0.11:8080");
     //.WithOrigins("http://localhost:8080", "http://192.168.0.11:8080").AllowAnyMethod().AllowAnyHeader();
     //builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
 }));
