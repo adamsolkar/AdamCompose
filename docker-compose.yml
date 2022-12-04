@@ -16,7 +16,7 @@ services:
 
   # generates weather reports
   dc-front-end:
-    image: dc-front-end
+    image: ghcr.io/adamsolkar/dc-front-end
     container_name: dc-front-end
     build:
       context: ./composevue
@@ -29,7 +29,7 @@ services:
 
   # Retrieves the temperature
   dc-back-end:
-    image: dc-back-end
+    image: ghcr.io/adamsolkar/dc-back-end
     container_name: dc-back-end
     build:
       context: ./BackendApi
