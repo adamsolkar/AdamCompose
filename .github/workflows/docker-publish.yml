@@ -81,6 +81,10 @@ jobs:
       #trying compose
       - name: Build image
         run: docker compose build
+        
+      #trying compose
+      - name: Push image
+        run: docker compose push
 
 
       # Sign the resulting Docker image digest except on PRs.
