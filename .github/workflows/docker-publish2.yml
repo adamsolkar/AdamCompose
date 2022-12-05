@@ -38,17 +38,17 @@ jobs:
       - name: List Files 1
         run: ls
 ###########################################
-#      - name: Push to DO
-#        run: |
-#          echo "$ssh_key" > ~/ssh_key
-#          chmod 600 ~/ssh_key
-#          rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./MuzMerch.Web/bin/Release/netcoreapp3.1/publish/ "$user"@"$target_ip":/var/www/Preprod
-#          rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./MuzMerch.Web/bin/Release/netcoreapp3.1/publish/ "$user"@"$target_ip":/var/www/cicdtest
-#        env:
-#          ssh_key: ${{ secrets.CICD_SSH }}
-#          user: ${{ secrets.CICD_USER }}
-#          target_ip: ${{ secrets.SERVER_IP }}
-#          folder_name: ${{ steps.vars.outputs.folder_name }}
+      - name: Push to DO
+        run: |
+          echo "$ssh_key" > ~/ssh_key
+          chmod 600 ~/ssh_key
+          rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./docker-compose.yml "$user"@"$target_ip":/var/www/cicdtest
+          rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./reverse_proxy "$user"@"$target_ip":/var/www/cicdtest
+        env:
+          ssh_key: ${{ secrets.CICD_SSH }}
+          user: ${{ secrets.CICD_USER }}
+          target_ip: ${{ secrets.SERVER_IP }}
+          #folder_name: ${{ steps.vars.outputs.folder_name }}
 ###########################################
 
 
