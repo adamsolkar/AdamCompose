@@ -59,6 +59,7 @@ jobs:
           script: |
             cd /var/www/cicdtest
             ls -a
+            docker --version
             docker compose pull
             docker compose down
             docker compose up
