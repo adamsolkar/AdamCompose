@@ -40,10 +40,7 @@ jobs:
 ###########################################
       - name: Push to DO
         run: |
-          echo "$user" $user
-          echo "$target_ip" $target_ip
           echo "$ssh_key" > ~/ssh_key
-          shell: bash
           chmod 600 ~/ssh_key
           rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./docker-compose.yml "$user"@"$target_ip":/var/www/cicdtest
           rsync -e "ssh -i ~/ssh_key -o StrictHostKeyChecking=no" -avzr ./reverse_proxy "$user"@"$target_ip":/var/www/cicdtest
