@@ -56,7 +56,12 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.CICD_USER }}
           key: ${{ secrets.CICD_SSH }}
-          script: whoami
+          script: |
+            cd /var/www/cicdtest
+            ls -a
+            docker compose pull
+            docker compose down
+            docker compose up
 
 
 
