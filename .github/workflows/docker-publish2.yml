@@ -50,6 +50,8 @@ jobs:
           target_ip: ${{ secrets.SERVER_IP }}
           #folder_name: ${{ steps.vars.outputs.folder_name }}
 ###########################################
+#export CR_PAT=${{ secrets.GHCR_TOKEN }}
+#echo $CR_PAT | docker login ghcr.io -u adamsolkar --password-stdin
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -60,8 +62,6 @@ jobs:
             cd /var/www/cicdtest
             ls -a
             docker --version
-            export CR_PAT=${{ secrets.GHCR_TOKEN }}
-            echo $CR_PAT | docker login ghcr.io -u adamsolkar --password-stdin
             docker-compose pull
             docker-compose down
             docker-compose up
