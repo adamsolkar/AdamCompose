@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h2>test 5 merged</h2>
+    <h2>test 5 merged 2</h2>
     <pre>{{ info }}</pre>
     <h1>{{ msg }}</h1>
     <p>
