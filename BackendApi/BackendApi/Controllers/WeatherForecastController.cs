@@ -12,10 +12,17 @@ namespace BackendApi.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly string key;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration configuration)
         {
             _logger = logger;
+
+            _configuration = configuration;
+
+            // sample:
+            key = _configuration.GetValue<string>("Child_Key");
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -47,6 +54,13 @@ namespace BackendApi.Controllers
                 Date = DateTime.Now.AddDays(5),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = "Adam be 2"
+            });
+
+            range.Add(new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(5),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = key
             });
 
             return range;

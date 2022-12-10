@@ -102,8 +102,8 @@ export default {
   },
   mounted() {
     axios
-      .get("http://46.101.44.35:5004/dc-back-end/test")
-      .then((response) => (this.info = response));
+      .get("http://test.instructorpay.com/dc-back-end/test")
+      .then((response) => (this.info = response.data));
   },
 };
 </script>
