@@ -37,6 +37,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+###########################################
+
+      - name: Print Working Directory 1
+        run: pwd
+      - name: List Files 1
+        run: ls
+###########################################
+      - name: Inject Secrets
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: './BackendApi/BackendApi/appsettings.Production.json'
+        env:
+          Child_Key: ${{ secrets.Child_Key }}
+
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
